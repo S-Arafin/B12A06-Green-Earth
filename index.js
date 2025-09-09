@@ -63,7 +63,7 @@ const displayTreeByCategories = (trees) =>{
                          alt="Shoes" />
                 </figure>
                 <div class="card-body">
-                <h2 class="card-title font-semibold">${tree.name}</h2>
+                <h2 onclick="displayDetails('${tree.name}', '${imgUrl}', '${tree.category}',${tree.price}, '${tree.description}')" class="card-title font-semibold">${tree.name}</h2>
                 <p>${tree.description}</p>
                 <div class="flex items-center justify-between">
                     <h2 class="text-[#15803D] bg-[#DCFCE795] py-1 px-2 rounded-3xl">${tree.category}</h2>
@@ -125,6 +125,16 @@ const CartBuilt = () => {
 const removeFromCart = (name) => {
   cartItems = cartItems.filter(item => item.name !== name)
   CartBuilt()
+}
+// modal
+const displayDetails =(name, img, category, price, description) =>{
+   document.getElementById("modalTitle").innerText = name;
+  document.getElementById("modalImage").src = img;
+  document.getElementById("modalCategory").innerText = category;
+  document.getElementById("modalPrice").innerText = price;
+  document.getElementById("modalDescription").innerText = description;
+
+  my_modal_5.showModal();
 }
 
 
