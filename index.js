@@ -13,7 +13,7 @@ const displayCategories = (categories) => {
     listOfCategories.innerHTML = ""
     for (let category of categories){
         const btnDiv = document.createElement("div")
-        btnDiv.innerHTML = `<button class="btn btn-success btn-ghost pl-1 buttonAll" onclick="loadTreeByCategories(${category.id})">${category.category_name}</button>`
+        btnDiv.innerHTML = `<button class="btn btn-success btn-ghost buttonAll" onclick="loadTreeByCategories(${category.id})">${category.category_name}</button>`
         listOfCategories.append(btnDiv)
         let button = document.querySelectorAll(".buttonAll")
        
@@ -27,6 +27,20 @@ const displayCategories = (categories) => {
     })
 })
 }
+
+
+
+
+const loadAllTrees = () => {
+    const url =`https://openapi.programming-hero.com/api/plants`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayTreeByCategories(data.plants))
+}
+
+
+
+
 
 const loadTreeByCategories = (id) => {
     const url =`https://openapi.programming-hero.com/api/category/${id}`
@@ -42,7 +56,7 @@ const displayTreeByCategories = (trees) =>{
         const imgUrl = tree.image;
         
         const card = document.createElement('div')
-        card.innerHTML = `<div class="card bg-base-100 w-96 shadow-sm p-4 max-w-[350px]">
+        card.innerHTML = `<div class="card bg-base-100 w-96 shadow-sm p-4 max-w-[350px] h-[500px]">
                 <figure>
                     <img
                           src="${imgUrl}"
@@ -116,3 +130,4 @@ const removeFromCart = (name) => {
 
 
 loadCategories()
+loadAllTrees()
