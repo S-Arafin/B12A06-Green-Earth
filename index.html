@@ -26,7 +26,7 @@
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <!-- hamburger -->
+         
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -77,17 +77,21 @@
 
     <section class="choose-your-tree p-6">
         <h2 class="text-center font-bold text-2xl mb-10">Choose Your Trees</h2>
-      <section class="flex flex-col md:flex-row justify-around ">
+      <section class="flex flex-col md:flex-row justify-around">
          <section class="flex flex-col items-center">
           <h2 class="text-xl font-bold mb-5 text-center md:text-left ">Categories</h2>
           <section id="categories" class="categories flex flex-row md:flex-col items-center justify-center flex-wrap space-y-2">
             
         </section>
          </section>
-        <section id="cards" class="grid grid-col-1  md:grid-cols-3 gap-3">
+          <section id="spinner" class="mt-[250px] justify-center items-center md:pl-28 hidden mx-auto">
+              <span class="loading loading-bars loading-xl"></span>
+          </section>
+
+        <section id="cards" class="grid grid-col-1  md:grid-cols-3 gap-3 mx-auto pl-0 md:pl-8">
             
         </section>
-        <section class="cart bg-white h-[510px] min-w-[13rem] overflow-y-auto rounded-xl">
+        <section class="cart mt-10 md:mt-0 bg-white h-[510px] min-w-[13rem] overflow-y-auto rounded-xl">
           <h2 class="text-xl font-semibold p-3">Your Cart</h2>
           <div id="cartItems" class="p-3 space-y-4">
             <div>
@@ -98,8 +102,29 @@
         </section>
       </section>
     </section>
+    <section class="max-w-[1090px] mx-auto">
+        <h1 class="mt-32 text-center font-bold text-2xl mb-10 md:mb-20">About the Campaign</h1>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-10 p-4 md:p-0">
+          <img src="./assets/about.png" alt="">
+          <div class="text-gray-500">
+            <p>
+            Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.
+            <ul">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </p>
+          </div>
+        </div>
+    </section>
+
+    <section>
+      
+    </section>
+
   <section id="modal">
-    <!-- Modal -->
+    
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box rounded-xl p-6">
     <h3 id="modalTitle" class="text-2xl font-bold mb-3">Tree Name</h3>
@@ -112,7 +137,7 @@
 
     <div class="modal-action">
       <form method="dialog">
-        <button class="btn">Close</button>
+        <button class="btn rounded-2xl bg-[#DCFCE795]">Close</button>
       </form>
     </div>
   </div>

@@ -32,10 +32,12 @@ const displayCategories = (categories) => {
 
 
 const loadAllTrees = () => {
+    manageSpinner(true);
     const url =`https://openapi.programming-hero.com/api/plants`
     fetch(url)
     .then(res => res.json())
     .then(data => displayTreeByCategories(data.plants))
+     
 }
 
 
@@ -43,6 +45,7 @@ const loadAllTrees = () => {
 
 
 const loadTreeByCategories = (id) => {
+    manageSpinner(true)
     const url =`https://openapi.programming-hero.com/api/category/${id}`
     fetch(url)
     .then(res => res.json())
@@ -50,6 +53,7 @@ const loadTreeByCategories = (id) => {
 }
 
 const displayTreeByCategories = (trees) =>{
+    manageSpinner(false)
     const treeCards = document.getElementById("cards")
     treeCards.innerHTML=""
     for(let tree of trees){
@@ -103,7 +107,7 @@ const CartBuilt = () => {
 
     const addItems = document.createElement("div")
     addItems.innerHTML = `
-      <div class="flex items-center justify-between gap-14 bg-[#DCFCE795] p-5 rounded-xl">
+      <div class="flex items-center justify-between gap-14 bg-[#DCFCE795] p-2 rounded-xl">
         <div>
           <h2 class="font-bold">${item.name}</h2>
           <p class="text-gray-400">৳${item.price} x ${item.count}</p>
@@ -135,6 +139,17 @@ const displayDetails =(name, img, category, price, description) =>{
   document.getElementById("modalDescription").innerText = description;
 
   my_modal_5.showModal();
+}
+
+const manageSpinner = (status)=>{
+    if(status==true){
+        document.getElementById("spinner").classList.remove("hidden")
+        document.getElementById("cards").classList.add("hidden")
+    }
+    else{
+        document.getElementById("cards").classList.remove("hidden")
+        document.getElementById("spinner").classList.add("hidden")
+    }
 }
 
 
