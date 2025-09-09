@@ -77,14 +77,17 @@
 
     <section class="choose-your-tree p-6">
         <h2 class="text-center font-bold text-2xl mb-10">Choose Your Trees</h2>
-      <section class="flex justify-between">
-          <section id="categories" class="categories">
-            <h2 class="text-xl font-bold pl-1">Categories</h2>
-        </section>
-        <section id="cards" class="grid grid-cols-3 gap-10">
+      <section class="flex flex-col md:flex-row justify-around">
+         <section>
+          <h2 class="text-xl font-bold text-center md:text-left pl-1">Categories</h2>
+          <section id="categories" class="categories flex flex-row md:flex-col items-left flex-wrap space-y-2">
             
         </section>
-        <section class="cart bg-white min-h-[400px] min-w-[15rem] rounded-xl">
+         </section>
+        <section id="cards" class="grid grid-col-1  md:grid-cols-3 gap-3">
+            
+        </section>
+        <section class="cart bg-white min-h-[400px] min-w-[13rem] rounded-xl">
           <h2 class="text-xl font-semibold p-3">Your Cart</h2>
           <div id="cartItems" class="p-3 space-y-4">
             <div>

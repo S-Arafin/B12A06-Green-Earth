@@ -10,11 +10,22 @@ const loadCategories = () => {
 const displayCategories = (categories) => {
     
     const listOfCategories = document.getElementById("categories")
+    listOfCategories.innerHTML = ""
     for (let category of categories){
         const btnDiv = document.createElement("div")
-        btnDiv.innerHTML = `<button class="btn btn-success btn-ghost pl-1" onclick="loadTreeByCategories(${category.id})">${category.category_name}</button>`
+        btnDiv.innerHTML = `<button class="btn btn-success btn-ghost pl-1 buttonAll" onclick="loadTreeByCategories(${category.id})">${category.category_name}</button>`
         listOfCategories.append(btnDiv)
+        let button = document.querySelectorAll(".buttonAll")
+       
     }
+    const buttons = document.querySelectorAll(".buttonAll")
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(button => button.classList.remove("bg-[#15803D]", "text-white"))
+      
+      btn.classList.add("bg-[#15803D]", "text-white")
+    })
+})
 }
 
 const loadTreeByCategories = (id) => {
@@ -26,11 +37,12 @@ const loadTreeByCategories = (id) => {
 
 const displayTreeByCategories = (trees) =>{
     const treeCards = document.getElementById("cards")
+    treeCards.innerHTML=""
     for(let tree of trees){
         const imgUrl = tree.image;
         
         const card = document.createElement('div')
-        card.innerHTML = `<div class="card bg-base-100 w-96 shadow-sm p-4">
+        card.innerHTML = `<div class="card bg-base-100 w-96 shadow-sm p-4 max-w-[350px]">
                 <figure>
                     <img
                           src="${imgUrl}"
